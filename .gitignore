@@ -8,3 +8,7 @@ standardizer
 
 venv/
 venvwin/
+
+.DS_Store
+
+Icon\r
