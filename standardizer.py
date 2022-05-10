@@ -17,10 +17,10 @@ print(directory)
 print()
 print()
 
-# supplier = input("Enter Supplier name of the pricelist: ") # Supplier name to be added to the end file
+basepath = input("Drag and drop base_vgnames.csv here: ") # for some reason after creating executable file it ignores current directory
+
 pricelist = input("Enter path to the pricelist (or drag and drop): ") # take path to the pricelist
 
-basepath = input("Drag and drop base_vgnames.csv here: ")
 base = pd.read_csv(basepath, header=0) # base for the standardizer - vg names from metacritic
 pricelist = pd.read_excel(pricelist) # link path to the pandas
 name_converter = pricelist.drop(['price', 'quantity', 'supplier'], axis=1)
@@ -47,9 +47,6 @@ for i in range(len(new_names)):
     new_names[i] = new_names[i].replace(' PC', '')
     new_names[i] = new_names[i].replace(' Standard', '')
         
-# list1 = base['game_title'].to_list() # game names from base file to list
-
-
 for i in new_names:
     mat1.append(process.extractOne(i, base['game_title'], scorer=fuzz.ratio)) # adding ratios to mat1 list
 name_converter['matches'] = mat1 # adding ratios to converter

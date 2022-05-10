@@ -5,6 +5,7 @@
 *.spec
 
 standardizer
+standardizerWin.py
 
 venv/
 venvwin/
