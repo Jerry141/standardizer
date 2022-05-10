@@ -1,15 +1,24 @@
+# Ignore output due to sensitive data
 *.xlsx
+
+# Ignore exe file for Windows
 *.exe
+
 *.log
 *.zip
+
+# Ignore specs files required for executable files
 *.spec
 
+# executable file for Mac
 standardizer
+
+# Windows version - very little difference in code
 standardizerWin.py
 
+# Virtual enviorments
 venv/
 venvwin/
 
+# Ignore Mac files
 .DS_Store
-
-Icon\r
