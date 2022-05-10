@@ -1,0 +1,10 @@
+*.xlsx
+*.exe
+*.log
+*.zip
+*.spec
+
+standardizer
+
+venv/
+venvwin/
