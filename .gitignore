@@ -1,5 +1,6 @@
 # Ignore output due to sensitive data
 *.xlsx
+*.xls
 
 # Ignore exe file for Windows
 *.exe
@@ -22,3 +23,6 @@ venvwin/
 
 # Ignore Mac files
 .DS_Store
+
+# Ignore daily_prices
+daily_prices/
