@@ -21,7 +21,7 @@ today = datetime.today().strftime('%d-%m-%Y')
 basepath = input("Drag and drop base_vgnames.csv here: ")
 pricelist = input("Enter path to the pricelist (or drag and drop): ") # take path to the pricelist
 
-base = pd.read_csv(basepath, header=0) # base for the standardizer - vg names from metacritic
+base = pd.read_csv(basepath, header=0, sep='t') # base for the standardizer - vg names from metacritic
 
 pricelist = pd.read_excel(pricelist) # link path to the pandas
 name_converter = pricelist.drop(['price', 'quantity', 'supplier'], axis=1)
