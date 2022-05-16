@@ -1,8 +1,7 @@
-#!/usr/bin/env python3
-
 from fuzzywuzzy import fuzz, process
 import pandas as pd
 import os
+from datetime import datetime
 
 print()
 print("Welcome to the Standardizer")
@@ -17,12 +16,17 @@ print(directory)
 print()
 print()
 
+today = datetime.today().strftime('%d-%m-%Y')
+
 basepath = input("Drag and drop base_vgnames.csv here: ")
 pricelist = input("Enter path to the pricelist (or drag and drop): ") # take path to the pricelist
 
 base = pd.read_csv(basepath, header=0) # base for the standardizer - vg names from metacritic
+
 pricelist = pd.read_excel(pricelist) # link path to the pandas
 name_converter = pricelist.drop(['price', 'quantity', 'supplier'], axis=1)
+
+supplier = pricelist['supplier'].iloc[0]
 
 threshold = 81 # score for game name change
 
@@ -65,7 +69,5 @@ for i in range(len(name_converter['matches'])):
 
 pricelist['product_name'] = mat2
 
-pricelist.to_excel('new_pricelist.xlsx', sheet_name='Pricelist', index=False)
-base.to_csv('base_vgnames.csv', index=False)
-
-close = input("press ENTER to close")
+pricelist.to_excel(f'daily_prices\\{today}-{supplier}.xlsx', sheet_name='Pricelist', index=False)
+base.to_csv('base_vgnames.csv', index=False, sep='t')

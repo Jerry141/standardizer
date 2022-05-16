@@ -19,7 +19,7 @@ standardizerWin.py
 
 # Virtual enviorments
 venv/
-venvwin/
+.venvWin/
 
 # Ignore Mac files
 .DS_Store
